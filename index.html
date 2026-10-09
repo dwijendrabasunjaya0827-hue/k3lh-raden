@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K3LH TKJ | Cyber Safe</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050b16;
+    color: #eaf6ff;
+    line-height: 1.7;
+}
+
+header {
+    background: #0a1425;
+    padding: 20px 7%;
+    border-bottom: 1px solid #00bfff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #00c8ff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #00c8ff;
+}
+
+.hero {
+    min-height: 450px;
+    padding: 80px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    flex-wrap: wrap;
+    background: radial-gradient(circle at right, #10355a, #050b16 65%);
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 260px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    color: #00c8ff;
+}
+
+.hero p {
+    color: #b5c8dc;
+    max-width: 600px;
+}
+
+.badge {
+    color: #00c8ff;
+    border: 1px solid #00c8ff;
+    padding: 6px 13px;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 12px 20px;
+    background: #00c8ff;
+    color: #04101b;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+.btn:hover {
+    background: white;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 440px;
+    border-radius: 15px;
+    border: 1px solid #00c8ff;
+    box-shadow: 0 0 25px #007ca855;
+}
+
+section {
+    padding: 65px 7%;
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title small {
+    color: #00c8ff;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    margin: 5px 0;
+}
+
+.section-title p {
+    color: #a9bdd1;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #0c192b;
+    padding: 23px;
+    border: 1px solid #183650;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #00c8ff;
+    box-shadow: 0 0 18px #00c8ff20;
+}
+
+.card h3 {
+    color: #00c8ff;
+    margin-bottom: 10px;
+}
+
+.card p, .card li {
+    color: #bdccdc;
+    font-size: 14px;
+}
+
+.icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.warning {
+    background: #291e12;
+    border-left: 4px solid #ffad42;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #ffe1b4;
+}
+
+.checklist label {
+    display: block;
+    padding: 12px;
+    margin: 8px 0;
+    background: #0c192b;
+    border: 1px solid #183650;
+    border-radius: 7px;
+}
+
+.checklist input {
+    margin-right: 10px;
+    accent-color: #00c8ff;
+}
+
+#progress {
+    color: #00c8ff;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.identity {
+    max-width: 650px;
+    background: #0c192b;
+    border: 1px solid #00c8ff;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.identity p {
+    padding: 8px 0;
+    border-bottom: 1px solid #20334a;
+}
+
+footer {
+    background: #030710;
+    padding: 25px;
+    text-align: center;
+    color: #9bb0c5;
+    border-top: 1px solid #183650;
+    font-size: 13px;
+}
+
+#topButton {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    border-radius: 50%;
+    padding: 13px 17px;
+    background: #00c8ff;
+    color: #04101b;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 550px) {
+    .grid, .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">CYBER-SAFE //</div>
+        <div>
+            <a href="#tentang">Tentang</a>
+            <a href="#bahaya">Bahaya</a>
+            <a href="#aturan">Aturan</a>
+            <a href="#pencegahan">Pencegahan</a>
+            <a href="#identitas">Identitas</a>
+        </div>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="hero-content">
+        <span class="badge">KESELAMATAN LABORATORIUM TKJ</span>
+        <h1>KERJA AMAN.<br><span>TEKNOLOGI NYAMAN.</span></h1>
+        <p>
+            Panduan Keselamatan dan Kesehatan Kerja serta Lingkungan Hidup
+            untuk siswa Teknik Komputer dan Jaringan.
+        </p>
+        <a href="#tentang" class="btn">Pelajari K3LH ↓</a>
+    </div>
+
+    <div class="hero-image">
+        <img
+            src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=85"
+            alt="Teknisi bekerja dengan peralatan komputer">
+    </div>
+</div>
+
+<section id="tentang">
+    <div class="section-title">
+        <small>01 / DASAR K3LH</small>
+        <h2>Pengertian K3LH</h2>
+        <p>Mengenal keselamatan kerja di lingkungan TKJ.</p>
+    </div>
+
+    <div class="two-column">
+        <div class="card">
+            <div class="icon">🛡️</div>
+            <h3>Apa Itu K3LH?</h3>
+            <p>
+                K3LH adalah singkatan dari Keselamatan dan Kesehatan Kerja
+                serta Lingkungan Hidup. K3LH merupakan upaya untuk mencegah
+                kecelakaan, menjaga kesehatan pekerja, dan melindungi
+                lingkungan selama kegiatan kerja berlangsung.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Tujuan dan Manfaat</h3>
+            <ul>
+                <li>Mencegah kecelakaan kerja.</li>
+                <li>Melindungi kesehatan siswa dan teknisi.</li>
+                <li>Mencegah kerusakan peralatan komputer.</li>
+                <li>Menciptakan lingkungan kerja yang aman dan nyaman.</li>
+                <li>Mengurangi pencemaran lingkungan.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="bahaya">
+    <div class="section-title">
+        <small>02 / IDENTIFIKASI RISIKO</small>
+        <h2>Potensi Bahaya di Laboratorium TKJ</h2>
+        <p>Kenali bahaya sebelum melakukan praktik.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>01. Sengatan Listrik</h3>
+            <p>Kabel terkelupas atau stopkontak rusak dapat menyebabkan sengatan listrik.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔥</div>
+            <h3>02. Korsleting</h3>
+            <p>Sambungan listrik yang bermasalah dapat menimbulkan panas dan kebakaran.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔌</div>
+            <h3>03. Kabel Berserakan</h3>
+            <p>Kabel yang melintang dapat menyebabkan orang tersandung.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔧</div>
+            <h3>04. Alat Kerja</h3>
+            <p>Obeng atau tang yang digunakan sembarangan dapat menyebabkan luka.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🪑</div>
+            <h3>05. Posisi Duduk</h3>
+            <p>Posisi kerja yang buruk dapat menyebabkan pegal dan kelelahan.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌫️</div>
+            <h3>06. Debu dan E-Waste</h3>
+            <p>Debu dan limbah elektronik yang tidak dikelola dengan benar dapat mengganggu kesehatan dan lingkungan.</p>
+        </div>
+    </div>
+
+    <div class="warning">
+        <strong>Perhatian!</strong> Jika menemukan kabel terbuka, percikan,
+        bau terbakar, atau perangkat rusak, hentikan pekerjaan dan laporkan
+        kepada guru atau teknisi. Jangan menyentuh bagian yang berbahaya.
+    </div>
+</section>
+
+<section id="aturan">
+    <div class="section-title">
+        <small>03 / PROSEDUR KESELAMATAN</small>
+        <h2>Aturan Keselamatan Kerja</h2>
+        <p>Ikuti aturan berikut saat praktik di laboratorium.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>01. Gunakan APD</h3>
+            <p>Gunakan sepatu tertutup dan perlengkapan pelindung sesuai kebutuhan praktik.</p>
+        </div>
+
+        <div class="card">
+            <h3>02. Matikan Perangkat</h3>
+            <p>Matikan dan cabut sumber daya sebelum membuka casing atau memasang komponen.</p>
+        </div>
+
+        <div class="card">
+            <h3>03. Periksa Kabel</h3>
+            <p>Jangan menggunakan kabel atau steker yang rusak.</p>
+        </div>
+
+        <div class="card">
+            <h3>04. Rapikan Area</h3>
+            <p>Jauhkan minuman dari perangkat dan rapikan kabel di lantai.</p>
+        </div>
+
+        <div class="card">
+            <h3>05. Gunakan Alat dengan Benar</h3>
+            <p>Gunakan obeng, crimping tool, dan LAN tester sesuai fungsinya.</p>
+        </div>
+
+        <div class="card">
+            <h3>06. Ikuti Arahan Guru</h3>
+            <p>Jangan melakukan praktik berisiko tanpa izin dan pengawasan.</p>
+        </div>
+
+        <div class="card">
+            <h3>07. Jaga Ventilasi</h3>
+            <p>Jangan menutup lubang udara komputer agar perangkat tidak terlalu panas.</p>
+        </div>
+
+        <div class="card">
+            <h3>08. Laporkan Bahaya</h3>
+            <p>Segera laporkan kerusakan alat atau kondisi yang tidak aman.</p>
+        </div>
+    </div>
+</section>
+
+<section id="pencegahan">
+    <div class="section-title">
+        <small>04 / TINDAKAN AMAN</small>
+        <h2>Pencegahan Kecelakaan Kerja</h2>
+        <p>Centang daftar pemeriksaan sebelum memulai praktik.</p>
+    </div>
+
+    <div class="two-column">
+        <div class="card">
+            <div class="icon">✅</div>
+            <h3>Checklist Keselamatan</h3>
+
+            <div class="checklist" id="checklist">
+                <label><input type="checkbox"> Area kerja bersih dan kering.</label>
+                <label><input type="checkbox"> Kabel dan peralatan diperiksa.</label>
+                <label><input type="checkbox"> Minuman dijauhkan dari komputer.</label>
+                <label><input type="checkbox"> Daya dilepas sebelum menangani komponen internal.</label>
+                <label><input type="checkbox"> Kabel ditata agar tidak membuat tersandung.</label>
+                <label><input type="checkbox"> Limbah elektronik dipisahkan dari sampah biasa.</label>
+                <label><input type="checkbox"> Kondisi berbahaya dilaporkan kepada guru.</label>
+            </div>
+
+            <p id="progress">0 dari 7 langkah selesai.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">♻️</div>
+            <h3>Pengelolaan Limbah Elektronik</h3>
+            <ul>
+                <li>Pisahkan baterai, kabel, dan komponen elektronik bekas.</li>
+                <li>Simpan limbah di tempat khusus yang aman.</li>
+                <li>Jangan membakar atau membuang limbah elektronik sembarangan.</li>
+                <li>Serahkan kepada pengelola limbah elektronik yang sesuai.</li>
+            </ul>
+
+            <div class="warning">
+                Jangan membongkar baterai atau menangani limbah berbahaya
+                tanpa petunjuk dan pengawasan yang sesuai.
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="identitas">
+    <div class="section-title">
+        <small>05 / PROFIL PEMBUAT</small>
+        <h2>Identitas Pembuat Website</h2>
+    </div>
+
+    <div class="identity">
+        <p><strong>Nama:</strong> Dwijendra Basunjaya</p>
+        <p><strong>Kelas:</strong> X TKJ 2</p>
+        <p><strong>Nomor Absen:</strong> Belum diisi</p>
+        <p><strong>Mata Pelajaran:</strong> K3LH / Teknik Komputer dan Jaringan</p>
+        <p><strong>Tugas:</strong> Praktik 5 — Pembuatan Website K3LH</p>
+    </div>
+</section>
+
+<footer>
+    <p>CYBER-SAFE | K3LH Laboratorium TKJ</p>
+    <p>Kerja aman, teknologi nyaman, lingkungan terjaga.</p>
+    <p>&copy; <span id="year"></span> Dwijendra Basunjaya</p>
+</footer>
+
+<button id="topButton" aria-label="Kembali ke atas">↑</button>
+
+<script>
+// Menampilkan tahun saat ini.
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Menghitung checklist yang telah dicentang.
+const checks = document.querySelectorAll(
+    '#checklist input[type="checkbox"]'
+);
+const progress = document.getElementById("progress");
+
+function updateProgress() {
+    let selesai = document.querySelectorAll(
+        '#checklist input[type="checkbox"]:checked'
+    ).length;
+
+    progress.textContent =
+        selesai + " dari " + checks.length + " langkah selesai.";
+}
+
+checks.forEach(function(check) {
+    check.addEventListener("change", updateProgress);
+});
+
+// Tombol kembali ke atas.
+const topButton = document.getElementById("topButton");
+
+window.addEventListener("scroll", function() {
+    topButton.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+topButton.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+</script>
+
+</body>
+</html>
