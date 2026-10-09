@@ -1,0 +1,907 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K3LH TKJ | Nicky Evan Wong</title>
+
+    <style>
+        :root {
+            --green: #16803c;
+            --green-light: #22a652;
+            --green-pale: #eaf8ee;
+            --white: #ffffff;
+            --bg: #f6fbf7;
+            --text: #183b27;
+            --muted: #607568;
+            --border: #d5e9da;
+            --shadow: 0 8px 24px rgba(22, 128, 60, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            color: var(--green);
+        }
+
+        .logo span {
+            color: var(--text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green-light);
+        }
+
+        .hero {
+            max-width: 1150px;
+            margin: auto;
+            padding: 75px 24px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .label {
+            display: inline-block;
+            background: #dcfce7;
+            color: var(--green);
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(35px, 5vw, 57px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            color: var(--green);
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--green);
+            color: white;
+            padding: 12px 22px;
+            border-radius: 9px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #10632e;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            background: var(--green-pale);
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .image-caption {
+            padding: 12px 8px 3px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        section {
+            padding: 65px 24px;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .white-section {
+            background: var(--white);
+        }
+
+        .definition {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            background: var(--green-pale);
+            border-left: 5px solid var(--green);
+            border-radius: 12px;
+        }
+
+        .definition p {
+            color: #385745;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: var(--green);
+            margin-bottom: 8px;
+            font-size: 19px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .rules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .rule {
+            display: flex;
+            gap: 13px;
+            padding: 18px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            align-items: flex-start;
+        }
+
+        .number {
+            background: var(--green);
+            color: var(--white);
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .rule p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .rule strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .checklist {
+            max-width: 750px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .check-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf4ef;
+        }
+
+        .check-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .check-item input {
+            margin-top: 6px;
+            accent-color: var(--green);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .progress-track {
+            height: 10px;
+            background: #e5eee7;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0 8px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--green-light);
+            transition: width 0.3s;
+        }
+
+        #progressText {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .closing {
+            background: var(--green);
+            color: white;
+            text-align: center;
+        }
+
+        .closing p {
+            max-width: 700px;
+            margin: 12px auto 0;
+            color: #e5f9eb;
+        }
+
+        .profile {
+            max-width: 500px;
+            margin: 25px auto 0;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--white);
+            text-align: left;
+        }
+
+        .profile p {
+            color: var(--text);
+            margin: 7px 0;
+        }
+
+        .profile strong {
+            color: var(--green);
+        }
+
+        footer {
+            background: #123d25;
+            color: #e5f9eb;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+        }
+
+        #topButton {
+            display: none;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: var(--green);
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 99;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 45px;
+            }
+
+            .hero-image img {
+                height: 260px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .cards,
+            .rules {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 45px 18px;
+            }
+
+            .definition,
+            .checklist {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#beranda" class="logo">K3LH<span>.TKJ</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#pengertian">Pengertian</a></li>
+                <li><a href="#tujuan">Tujuan</a></li>
+                <li><a href="#bahaya">Bahaya</a></li>
+                <li><a href="#aturan">Aturan</a></li>
+                <li><a href="#pencegahan">Pencegahan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="beranda">
+            <div>
+                <span class="label">KESELAMATAN KERJA LABORATORIUM</span>
+
+                <h1>
+                    UTAMAKAN <span>KESELAMATAN</span>
+                    DI LAB TKJ
+                </h1>
+
+                <p>
+                    Kenali bahaya, patuhi aturan, dan terapkan budaya
+                    K3LH untuk menciptakan laboratorium Teknik Komputer
+                    dan Jaringan yang aman, sehat, bersih, serta nyaman.
+                </p>
+
+                <a href="#pengertian" class="button">
+                    Pelajari K3LH ↓
+                </a>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1000&q=85"
+                    alt="Ilustrasi aktivitas teknis dan keselamatan kerja"
+                    onerror="this.style.display='none';"
+                >
+                <p class="image-caption">
+                    Keselamatan adalah tanggung jawab bersama.
+                </p>
+            </div>
+        </section>
+
+        <section id="pengertian" class="white-section">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <h2>Apa Itu K3LH?</h2>
+                    <p>Kenali dasar keselamatan di lingkungan kerja.</p>
+                </div>
+
+                <div class="definition">
+                    <p>
+                        <strong>K3LH</strong> adalah singkatan dari
+                        Keselamatan dan Kesehatan Kerja serta Lingkungan
+                        Hidup. K3LH merupakan upaya untuk melindungi
+                        pekerja dan pengguna laboratorium dari kecelakaan
+                        kerja, gangguan kesehatan, serta dampak lingkungan
+                        yang dapat terjadi selama kegiatan berlangsung.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tujuan">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <h2>Tujuan dan Manfaat K3LH</h2>
+                    <p>Mengapa K3LH penting diterapkan di laboratorium TKJ?</p>
+                </div>
+
+                <div class="cards">
+                    <article class="card">
+                        <div class="icon">🛡️</div>
+                        <h3>Mencegah Kecelakaan</h3>
+                        <p>
+                            Mengurangi risiko tersengat listrik, terluka,
+                            tersandung kabel, dan kecelakaan lainnya.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">💚</div>
+                        <h3>Menjaga Kesehatan</h3>
+                        <p>
+                            Menciptakan lingkungan kerja yang bersih,
+                            nyaman, dan mendukung kesehatan.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🌱</div>
+                        <h3>Melindungi Lingkungan</h3>
+                        <p>
+                            Mengelola sampah elektronik dengan benar
+                            dan menjaga kebersihan laboratorium.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🖥️</div>
+                        <h3>Menjaga Peralatan</h3>
+                        <p>
+                            Mencegah kerusakan komputer, perangkat
+                            jaringan, dan alat praktikum.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">⚙️</div>
+                        <h3>Meningkatkan Efisiensi</h3>
+                        <p>
+                            Membuat kegiatan praktikum lebih tertib,
+                            teratur, dan efektif.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🤝</div>
+                        <h3>Membangun Disiplin</h3>
+                        <p>
+                            Membiasakan siswa bertanggung jawab dan
+                            mematuhi prosedur keselamatan.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="bahaya" class="white-section">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <h2>Potensi Bahaya di Lab TKJ</h2>
+                    <p>
+                        Waspadai berbagai risiko saat melakukan praktikum.
+                    </p>
+                </div>
+
+                <div class="cards">
+                    <article class="card">
+                        <div class="icon">⚡</div>
+                        <h3>Sengatan Listrik</h3>
+                        <p>
+                            Kabel terkelupas atau peralatan listrik
+                            yang rusak dapat menyebabkan sengatan.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🔥</div>
+                        <h3>Korsleting</h3>
+                        <p>
+                            Sambungan listrik yang tidak aman atau
+                            beban berlebih dapat menimbulkan korsleting.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🔌</div>
+                        <h3>Kabel Berserakan</h3>
+                        <p>
+                            Kabel yang melintang di lantai dapat
+                            membuat siswa tersandung atau terjatuh.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🛠️</div>
+                        <h3>Alat Kerja</h3>
+                        <p>
+                            Tang potong, crimping tool, dan alat lain
+                            dapat menyebabkan luka jika digunakan salah.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🪑</div>
+                        <h3>Posisi Kerja Buruk</h3>
+                        <p>
+                            Posisi duduk atau layar yang tidak tepat
+                            dapat menyebabkan ketidaknyamanan tubuh.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🌫️</div>
+                        <h3>Debu dan Limbah Elektronik</h3>
+                        <p>
+                            Debu dapat mengganggu kebersihan perangkat,
+                            sedangkan limbah elektronik perlu penanganan khusus.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="aturan">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <h2>8 Aturan Keselamatan Kerja</h2>
+                    <p>
+                        Terapkan aturan ini sebelum dan selama praktikum.
+                    </p>
+                </div>
+
+                <div class="rules">
+                    <div class="rule">
+                        <span class="number">1</span>
+                        <div>
+                            <strong>Periksa Peralatan</strong>
+                            <p>
+                                Pastikan kabel, stopkontak, dan perangkat
+                                dalam kondisi baik sebelum digunakan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="number">2</span>
+                        <div>
+                            <strong>Gunakan APD yang Sesuai</strong>
+                            <p>
+                                Gunakan alat pelindung diri sesuai risiko
+                                pekerjaan dan petunjuk guru.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="number">3</span>
+                        <div>
+                            <strong>Jaga Tangan Tetap Kering</strong>
+                            <p>
+                                Jangan menyentuh perangkat listrik
+                                dengan tangan basah.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="number">4</span>
+                        <div>
+                            <strong>Rapikan Kabel</strong>
+                            <p>
+                                Susun kabel agar tidak melintang di
+                                jalur berjalan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="number">5</span>
+                        <div>
+                            <strong>Gunakan Alat dengan Benar</strong>
+                            <p>
+                                Ikuti instruksi penggunaan alat dan
+                                arahan guru atau pembimbing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="number">6</span>
+                        <div>
+                            <strong>Hindari Makan dan Minum</strong>
+                            <p>
+                                Jauhkan makanan dan minuman dari
+                                komputer serta peralatan listrik.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="number">7</span>
+                        <div>
+                            <strong>Jaga Posisi Kerja</strong>
+                            <p>
+                                Atur kursi, meja, dan monitor agar
+                                nyaman saat praktikum.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="number">8</span>
+                        <div>
+                            <strong>Laporkan Kondisi Berbahaya</strong>
+                            <p>
+                                Segera beri tahu guru jika menemukan
+                                kabel rusak atau peralatan bermasalah.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pencegahan" class="white-section">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <h2>Cek Kesiapan Praktikum</h2>
+                    <p>
+                        Tandai setiap langkah yang sudah kamu lakukan.
+                    </p>
+                </div>
+
+                <div class="checklist">
+                    <label class="check-item">
+                        <input type="checkbox">
+                        <span>Memeriksa kondisi kabel dan peralatan.</span>
+                    </label>
+
+                    <label class="check-item">
+                        <input type="checkbox">
+                        <span>Memastikan area kerja bersih dan kering.</span>
+                    </label>
+
+                    <label class="check-item">
+                        <input type="checkbox">
+                        <span>Menyiapkan alat pelindung diri yang diperlukan.</span>
+                    </label>
+
+                    <label class="check-item">
+                        <input type="checkbox">
+                        <span>Merapikan kabel dan jalur berjalan.</span>
+                    </label>
+
+                    <label class="check-item">
+                        <input type="checkbox">
+                        <span>Memahami instruksi dan prosedur praktikum.</span>
+                    </label>
+
+                    <label class="check-item">
+                        <input type="checkbox">
+                        <span>Mengetahui cara meminta bantuan ketika terjadi masalah.</span>
+                    </label>
+
+                    <div class="progress-track">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+
+                    <p id="progressText" aria-live="polite">
+                        0 dari 6 langkah selesai.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-inner">
+                <div class="section-heading">
+                    <h2>Pengelolaan Limbah Elektronik</h2>
+                    <p>
+                        Lindungi lingkungan dengan membuang limbah secara tepat.
+                    </p>
+                </div>
+
+                <div class="cards">
+                    <article class="card">
+                        <div class="icon">📦</div>
+                        <h3>Kumpulkan</h3>
+                        <p>
+                            Pisahkan perangkat elektronik rusak dari
+                            sampah rumah tangga biasa.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">♻️</div>
+                        <h3>Pilah</h3>
+                        <p>
+                            Kelompokkan limbah berdasarkan jenisnya
+                            dan jangan membongkar baterai atau komponen berbahaya.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🌍</div>
+                        <h3>Salurkan</h3>
+                        <p>
+                            Serahkan kepada fasilitas atau pengelola
+                            limbah elektronik yang sesuai.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="closing" id="tentang">
+            <div class="section-inner">
+                <h2>Keselamatan Adalah Prioritas!</h2>
+                <p>
+                    Dengan menerapkan K3LH, kita dapat belajar dan
+                    bekerja dengan aman, menjaga kesehatan, merawat
+                    peralatan, serta melindungi lingkungan.
+                    Mulailah dari diri sendiri dan lakukan setiap hari.
+                </p>
+
+                <div class="profile">
+                    <p><strong>Nama:</strong> Nicky Evan Wong</p>
+                    <p><strong>Kelas:</strong> X TKJ 2</p>
+                    <p><strong>No. Absen:</strong> ................</p>
+                    <p><strong>Tugas:</strong> Praktik Pembuatan Website K3LH</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            © <span id="year"></span> K3LH TKJ |
+            Dibuat oleh Nicky Evan Wong - X TKJ 2
+        </p>
+        <p>Utamakan Keselamatan, Wujudkan Lingkungan Kerja yang Sehat.</p>
+    </footer>
+
+    <button id="topButton" aria-label="Kembali ke atas" title="Kembali ke atas">
+        ↑
+    </button>
+
+    <script>
+        // Menampilkan tahun secara otomatis
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Checklist pencegahan kecelakaan
+        const checkboxes = document.querySelectorAll(
+            '.checklist input[type="checkbox"]'
+        );
+
+        const progressBar = document.getElementById("progressBar");
+        const progressText = document.getElementById("progressText");
+
+        function updateProgress() {
+            const total = checkboxes.length;
+            const checked = document.querySelectorAll(
+                '.checklist input[type="checkbox"]:checked'
+            ).length;
+
+            const percentage = (checked / total) * 100;
+
+            progressBar.style.width = percentage + "%";
+            progressText.textContent =
+                checked + " dari " + total + " langkah selesai.";
+
+            if (checked === total) {
+                progressText.textContent =
+                    "Semua langkah selesai! Tetap utamakan keselamatan.";
+            }
+        }
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener("change", updateProgress);
+        });
+
+        // Tombol kembali ke atas
+        const topButton = document.getElementById("topButton");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                topButton.style.display = "block";
+            } else {
+                topButton.style.display = "none";
+            }
+        });
+
+        topButton.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+</body>
+</html>
